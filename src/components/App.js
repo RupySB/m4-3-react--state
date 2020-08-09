@@ -1,14 +1,22 @@
-import React from 'react';
+import React from "react";
+import data from "../data";
+import GlobalStyles from "./GlobalStyles";
+import Typeahead from "./Typeahead";
+import styled from "styled-components";
 
-import GlobalStyles from './GlobalStyles';
-
-const App = (props) => {
+function App(props) {
+  // TODO!
   return (
     <>
       <GlobalStyles />
-      {/* TODO */}
+      <Typeahead
+        suggestions={data.books}
+        handleSelect={(suggestion) => {
+          window.alert(suggestion);
+        }}
+      />
     </>
   );
-};
+}
 
 export default App;
