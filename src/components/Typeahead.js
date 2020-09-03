@@ -24,7 +24,7 @@ const Typeahead = ({ suggestions, handleSelect }) => {
   });
   return (
     <>
-      <input
+      <Textinput
         type="text"
         value={value}
         onChange={(ev) => setValue(ev.target.value)}
@@ -33,17 +33,39 @@ const Typeahead = ({ suggestions, handleSelect }) => {
             handleSelect(ev.target.value);
           }
         }}
-      />
-      <ul>{displaySuggestions}</ul>
-      <button onClick={() => setValue("")}>Clear</button>
+      ></Textinput>
+      <Displayed>{displaySuggestions}</Displayed>
+      <Button onClick={() => setValue("")}>Clear</Button>
     </>
   );
 };
+
+const Textinput = styled.input`
+  font-size: 20px;
+  display: flex;
+  padding: 10px;
+  margin: 10px;
+`;
 
 const Option = styled.li`
   li:hover {
     color: blueviolet;
   }
+`;
+
+const Button = styled.button`
+  display: inline-flex;
+  color: peachpuff;
+  border-radius: 5px;
+  background: purple;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 15px;
+`;
+
+const Displayed = styled.ul`
+  font-size: 20px;
 `;
 
 export default Typeahead;
